@@ -1,24 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import { Form, Button } from "react-bootstrap";
+import PhoneVerify from "./componenets/PhoneVerify";
 
 function App() {
+  const [show, setShow] = useState(false);
+
+  const handleShow = (event) => {
+    event.preventDefault();
+    setShow(true);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <>
+    <div className="popup-overlay">
+      <Form className="phone-form">
+        <Form.Group className="mb-3">
+          <Form.Label>Please enter your phone number:</Form.Label>
+          <Form.Control type="number" placeholder="Enter Phone number" />
+        </Form.Group>
+        <Button variant="primary" type="submit" onClick={handleShow}>
+          Submit
+        </Button>
+      </Form>
+      <PhoneVerify show={show} setShow={setShow} />
     </div>
+
+    <footer>
+      Made By: Saurav Chatterjee
+    </footer>
+  </>
   );
 }
 
