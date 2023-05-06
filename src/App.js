@@ -17,7 +17,7 @@ function App() {
       <Form className="phone-form">
         <Form.Group className="mb-3">
           <Form.Label>Please enter your phone number:</Form.Label>
-          <Form.Control type="number" placeholder="Enter Phone number" />
+          <Form.Control type="number" placeholder="Enter Phone number" className="form-control" />
         </Form.Group>
         <Button variant="primary" type="submit" onClick={handleShow}>
           Submit
